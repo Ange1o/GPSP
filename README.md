@@ -1,2 +1,2 @@
 # GPSP
-This is the code and report for Msc. Dissertation from March to August in 2017. The data is excluded due to size limitation.
+This is the code for *GPSP: Graph Partition and Space Projection based approach for Heterogeneous Network Embedding*. The data aviable at http://thisis.
