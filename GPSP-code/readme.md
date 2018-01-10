@@ -1,4 +1,4 @@
-#This folder contains the code for GPSP model. 
+# This folder contains the code for GPSP model. 
 * Folder preprocessing contains preprocessing steps for the data
 * Folder pte is my implmentation of pte
 * Folder space projection is the space projection step
