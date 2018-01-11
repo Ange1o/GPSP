@@ -1,12 +1,16 @@
 # GPSP
 This is the code for *GPSP: Graph Partition and Space Projection based approach for Heterogeneous Network Embedding*. The data and embeddings are aviable at https://drive.google.com/open?id=1PFp1E0O4I2LbitPo4_SV_0VP5hs2Z5gp.
 
-## Specification in GPSP-code
-- Folder preprocessing : preprocessing steps for the data
-- Folder pte : implmentation of pte
-- Folder space projection is the space projection step
-- Folders node classification and clustering contain : codes for classification and clustering respectively
-- Folder visulization : codes for modifying data for the embedding projector.
+## Specification
+### GPSP-code
+- SubFolder preprocessing : preprocessing steps for the data
+- SubFolder pte : implmentation of pte
+- SubFolder space projection is the space projection step
+- SubFolder node classification : codes for nodes classification 
+- SubFolder node clustering  : codes for nodes clustering 
+- SubFolder visulization : codes for modifying data for the embedding projector
+### img
+- Algorithm and visulazation iamges
 
 ## Development Environment
 - OS: Ubuntu 16.04 LTS
@@ -19,7 +23,7 @@ This is the code for *GPSP: Graph Partition and Space Projection based approach 
     - NLTK 3.2.5
     - scikit-learn 0.18.1
 ## Algorithm
-
+- The following is the summary of GPSP algorithm
 
 ![alt text][a1]
 
@@ -40,8 +44,11 @@ This is the code for *GPSP: Graph Partition and Space Projection based approach 
 - GPSPL == GPSP-LINE
 - GPSPD == GPSP-DeepWalk
 
-### Visulization using Tensorflow Projector (t-sne)
+### Visulization using Tensorflow Projector (2D t-sne)
 
+- The learned embeddings are fed into [Tensorflow Projector] (http://projector.tensorflow.org/) using t-sne.
+- Below is the visulization of GPSP-DeepWalk.
+- Eight groups are Computing Systems, Theoretical Computer Science, Computer Networks & Wireless Communication, Computer Graphics, Human Computer Interaction, Computational Linguistics, Computer Vision & Pattern Recognition, Databases & Information Systems
 
 ![alt text][v1]
 
