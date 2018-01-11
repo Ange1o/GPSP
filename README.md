@@ -47,10 +47,6 @@ This is the code for *GPSP: Graph Partition and Space Projection based approach 
 [logo]: https://github.com/Ange1o/GPSP/raw/master/img/gpspD.png "Embedding"
 
 
-
-
-
-
 ### Multi-label classification results (Micro-F1)
 
 |        Method        |    10%     |    20%     |    30%     |    40%     |    50%     |    60%     |    70%     |    80%     |    90%     |
