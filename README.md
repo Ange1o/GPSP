@@ -6,6 +6,7 @@ This is the code for *GPSP: Graph Partition and Space Projection based approach 
 - Folder pte : implmentation of pte
 - Folder space projection is the space projection step
 - Folders node classification and clustering contain : codes for classification and clustering respectively
+- Folder visulization : codes for modifying data for the embedding projector.
 
 ## Development Environment
 - OS: Ubuntu 16.04 LTS
@@ -20,7 +21,6 @@ This is the code for *GPSP: Graph Partition and Space Projection based approach 
 
 
 ## Experimental Details
-
 
 - GPSPL == GPSP-LINE
 - GPSPD == GPSP-DeepWalk
