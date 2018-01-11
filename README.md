@@ -25,6 +25,17 @@ This is the code for *GPSP: Graph Partition and Space Projection based approach 
 - GPSPL == GPSP-LINE
 - GPSPD == GPSP-DeepWalk
 
+### Visulization using Tensorflow Projector
+
+![alt text][logo]
+
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+
+
+
+
+
+
 ### Multi-label classification results (Micro-F1)
 
 |        Method        |    10%     |    20%     |    30%     |    40%     |    50%     |    60%     |    70%     |    80%     |    90%     |
