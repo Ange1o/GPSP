@@ -18,6 +18,21 @@ This is the code for *GPSP: Graph Partition and Space Projection based approach 
     - pandas 0.21.1
     - NLTK 3.2.5
     - scikit-learn 0.18.1
+## Algorithm
+
+
+![alt text][logo]
+
+[logo]: https://github.com/Ange1o/GPSP/raw/master/img/algorithm1.png "Algorithm 1"
+
+
+![alt text][logo]
+
+[logo]: https://github.com/Ange1o/GPSP/raw/master/img/algorithm2.png "Algorithm 2"
+
+![alt text][logo]
+
+[logo]: https://github.com/Ange1o/GPSP/raw/master/img/algorithm3.png "Algorithm 3"
 
 
 ## Experimental Details
@@ -25,11 +40,11 @@ This is the code for *GPSP: Graph Partition and Space Projection based approach 
 - GPSPL == GPSP-LINE
 - GPSPD == GPSP-DeepWalk
 
-### Visulization using Tensorflow Projector
+### Visulization using Tensorflow Projector (t-sne)
 
 ![alt text][logo]
 
-[logo]: https://github.com/Ange1o/GPSP/raw/master/img/algorithm1.png "Logo Title Text 2"
+[logo]: https://github.com/Ange1o/GPSP/raw/master/img/gpspD.png "Embedding"
 
 
 
