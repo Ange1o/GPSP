@@ -10,7 +10,7 @@ This is the code for *GPSP: Graph Partition and Space Projection based approach 
 - SubFolder node clustering  : codes for nodes clustering 
 - SubFolder visulization : codes for modifying data for the embedding projector
 ### img
-- Algorithm and visulazation iamges
+- Algorithm and visulazation images
 
 ## Development Environment
 - OS: Ubuntu 16.04 LTS
@@ -23,7 +23,7 @@ This is the code for *GPSP: Graph Partition and Space Projection based approach 
     - NLTK 3.2.5
     - scikit-learn 0.18.1
 ## Algorithm
-- The following is the summary of GPSP algorithm
+- The followings are the summary of GPSP algorithm
 
 ![alt text][a1]
 
@@ -41,19 +41,20 @@ This is the code for *GPSP: Graph Partition and Space Projection based approach 
 
 ## Experimental Details
 
-- GPSPL == GPSP-LINE
-- GPSPD == GPSP-DeepWalk
+
 
 ### Visulization using Tensorflow Projector (2D t-sne)
 
-- The learned embeddings are fed into [Tensorflow Projector] (http://projector.tensorflow.org/) using t-sne.
+- The learned embeddings are fed into [Tensorflow Projector](http://projector.tensorflow.org/) using t-sne.
 - Below is the visulization of GPSP-DeepWalk.
-- Eight groups are Computing Systems, Theoretical Computer Science, Computer Networks & Wireless Communication, Computer Graphics, Human Computer Interaction, Computational Linguistics, Computer Vision & Pattern Recognition, Databases & Information Systems
+- Eight groups are Computing Systems, Theoretical Computer Science, Computer Networks & Wireless Communication, Computer Graphics, Human Computer Interaction, Computational Linguistics, Computer Vision & Pattern Recognition, Databases & Information Systems.
 
 ![alt text][v1]
 
 [v1]: https://github.com/Ange1o/GPSP/raw/master/img/gpspD.PNG "Embedding"
 
+- GPSPL == GPSP-LINE
+- GPSPD == GPSP-DeepWalk
 
 ### Multi-label classification results (Micro-F1)
 
