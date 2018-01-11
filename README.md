@@ -1,440 +1,57 @@
 # GPSP
 This is the code for *GPSP: Graph Partition and Space Projection based approach for Heterogeneous Network Embedding*. The data and embeddings are aviable at https://drive.google.com/open?id=1PFp1E0O4I2LbitPo4_SV_0VP5hs2Z5gp.
+          Method             10%          20%          30%          40%          50%          60%          70%          80%          90%
+  ---------------------- ------------ ------------ ------------ ------------ ------------ ------------ ------------ ------------ ------------
+         LINE-1st           0.7003       0.7069       0.7081       0.7087       0.7087       0.7084       0.7079       0.7087       0.7079
+         LINE-2nd           0.6436       0.6446       0.6457       0.6462       0.6463       0.6458       0.6456       0.6450       0.6470
+       LINE-1st+2nd         0.7062       0.7064       0.7067       0.7075       0.7074       0.7077       0.7062       0.7072       0.7075
+     GPSPL-author 1st       0.6390       0.6420       0.6430       0.6436       0.6439       0.6432       0.6426       0.6448       0.6455
+     GPSPL-author 2nd       0.6162       0.6179       0.6184       0.6186       0.6181       0.6181       0.6183       0.6199       0.6212
+   GPSPL-author 1st+2nd     0.6487       0.6509       0.6515       0.6519       0.6522       0.6515       0.6519       0.6534       0.6540
+     GPSPL-paper 1st        0.7118       0.7148       0.7136       0.7156       0.7167       0.7127       0.7219       0.7206       0.7227
+     GPSPL-paper 2nd        0.6532       0.6546       0.6553       0.6554       0.6546       0.6540       0.6552       0.6521       0.6565
+   GPSPL-paper 1st+2nd      0.7235       0.7247       0.7247       0.7252       0.7256       0.7250       0.7262       0.7256       0.7267
+           PTE              0.7122       0.7125       0.7129       0.7135       0.7133       0.7138       0.7140       0.7135       0.7138
+       metapath2vec         0.6546       0.6547       0.6549       0.6550       0.6547       0.6551       0.6552       0.6537       0.6529
+      metapath2vec++        0.6692       0.6687       0.6681       0.6679       0.6676       0.6678       0.6677       0.6658       0.6651
+         Deepwalk           0.6992       0.6998       0.7010       0.7008       0.6992       0.6988       0.6986       0.6964       0.6988
+       GPSPD-author         0.5919       0.5936       0.5950       0.5968       0.5963       0.5993       0.5974       0.5995       0.5980
+       GPSPD-paper          0.7010       0.7011       0.7016       0.7019       0.7021       0.7020       0.7018       0.7023       0.7020
+          GPSPD           **0.7275**   **0.7304**   **0.7318**   **0.7330**   **0.7324**   **0.7328**   **0.7320**   **0.7331**   **0.7318**
+        GPSPL 1st           0.7344       0.7378       0.7397       0.7396       0.7391       0.7401       0.7410       0.7425       0.7388
+        GPSPL 2nd           0.7121       0.7128       0.7141       0.7130       0.7148       0.7146       0.7137       0.7145       0.7159
+      GPSPL 1st+2nd       **0.7512**   **0.7540**   **0.7557**   **0.7564**   **0.7564**   **0.7558**   **0.7554**   **0.7574**   **0.7552**
 
-<table>
-<caption>Multi-label classification results for author embeddings in LINE-related algorithms</caption>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Metric</th>
-<th style="text-align: center;">Method</th>
-<th style="text-align: center;">10%</th>
-<th style="text-align: center;">20%</th>
-<th style="text-align: center;">30%</th>
-<th style="text-align: center;">40%</th>
-<th style="text-align: center;">50%</th>
-<th style="text-align: center;">60%</th>
-<th style="text-align: center;">70%</th>
-<th style="text-align: center;">80%</th>
-<th style="text-align: center;">90%</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">LINE-1st</td>
-<td style="text-align: center;">0.7003</td>
-<td style="text-align: center;">0.7069</td>
-<td style="text-align: center;">0.7081</td>
-<td style="text-align: center;">0.7087</td>
-<td style="text-align: center;">0.7087</td>
-<td style="text-align: center;">0.7084</td>
-<td style="text-align: center;">0.7079</td>
-<td style="text-align: center;">0.7087</td>
-<td style="text-align: center;">0.7079</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">LINE-2nd</td>
-<td style="text-align: center;">0.6436</td>
-<td style="text-align: center;">0.6446</td>
-<td style="text-align: center;">0.6457</td>
-<td style="text-align: center;">0.6462</td>
-<td style="text-align: center;">0.6463</td>
-<td style="text-align: center;">0.6458</td>
-<td style="text-align: center;">0.6456</td>
-<td style="text-align: center;">0.6450</td>
-<td style="text-align: center;">0.6470</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">LINE-1st+2nd</td>
-<td style="text-align: center;">0.7062</td>
-<td style="text-align: center;">0.7064</td>
-<td style="text-align: center;">0.7067</td>
-<td style="text-align: center;">0.7075</td>
-<td style="text-align: center;">0.7074</td>
-<td style="text-align: center;">0.7077</td>
-<td style="text-align: center;">0.7062</td>
-<td style="text-align: center;">0.7072</td>
-<td style="text-align: center;">0.7075</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">PTE</td>
-<td style="text-align: center;">0.7122</td>
-<td style="text-align: center;">0.7125</td>
-<td style="text-align: center;">0.7129</td>
-<td style="text-align: center;">0.7135</td>
-<td style="text-align: center;">0.7133</td>
-<td style="text-align: center;">0.7138</td>
-<td style="text-align: center;">0.7140</td>
-<td style="text-align: center;">0.7135</td>
-<td style="text-align: center;">0.7138</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">GPSPL-author 1st</td>
-<td style="text-align: center;">0.6390</td>
-<td style="text-align: center;">0.6420</td>
-<td style="text-align: center;">0.6430</td>
-<td style="text-align: center;">0.6436</td>
-<td style="text-align: center;">0.6439</td>
-<td style="text-align: center;">0.6432</td>
-<td style="text-align: center;">0.6426</td>
-<td style="text-align: center;">0.6448</td>
-<td style="text-align: center;">0.6455</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">GPSPL-author 2nd</td>
-<td style="text-align: center;">0.6162</td>
-<td style="text-align: center;">0.6179</td>
-<td style="text-align: center;">0.6184</td>
-<td style="text-align: center;">0.6186</td>
-<td style="text-align: center;">0.6181</td>
-<td style="text-align: center;">0.6181</td>
-<td style="text-align: center;">0.6183</td>
-<td style="text-align: center;">0.6199</td>
-<td style="text-align: center;">0.6212</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">GPSPL-author 1st+2nd</td>
-<td style="text-align: center;">0.6487</td>
-<td style="text-align: center;">0.6509</td>
-<td style="text-align: center;">0.6515</td>
-<td style="text-align: center;">0.6519</td>
-<td style="text-align: center;">0.6522</td>
-<td style="text-align: center;">0.6515</td>
-<td style="text-align: center;">0.6519</td>
-<td style="text-align: center;">0.6534</td>
-<td style="text-align: center;">0.6540</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">GPSPL-paper 1st</td>
-<td style="text-align: center;">0.7118</td>
-<td style="text-align: center;">0.7148</td>
-<td style="text-align: center;">0.7136</td>
-<td style="text-align: center;">0.7156</td>
-<td style="text-align: center;">0.7167</td>
-<td style="text-align: center;">0.7127</td>
-<td style="text-align: center;">0.7219</td>
-<td style="text-align: center;">0.7206</td>
-<td style="text-align: center;">0.7227</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">GPSPL-paper 2nd</td>
-<td style="text-align: center;">0.6532</td>
-<td style="text-align: center;">0.6546</td>
-<td style="text-align: center;">0.6553</td>
-<td style="text-align: center;">0.6554</td>
-<td style="text-align: center;">0.6546</td>
-<td style="text-align: center;">0.6540</td>
-<td style="text-align: center;">0.6552</td>
-<td style="text-align: center;">0.6521</td>
-<td style="text-align: center;">0.6565</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">GPSPL-paper 1st+2nd</td>
-<td style="text-align: center;">0.7235</td>
-<td style="text-align: center;">0.7247</td>
-<td style="text-align: center;">0.7247</td>
-<td style="text-align: center;">0.7252</td>
-<td style="text-align: center;">0.7256</td>
-<td style="text-align: center;">0.7250</td>
-<td style="text-align: center;">0.7262</td>
-<td style="text-align: center;">0.7256</td>
-<td style="text-align: center;">0.7267</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">metapath2vec</td>
-<td style="text-align: center;">0.6546</td>
-<td style="text-align: center;">0.6547</td>
-<td style="text-align: center;">0.6549</td>
-<td style="text-align: center;">0.6550</td>
-<td style="text-align: center;">0.6547</td>
-<td style="text-align: center;">0.6551</td>
-<td style="text-align: center;">0.6552</td>
-<td style="text-align: center;">0.6537</td>
-<td style="text-align: center;">0.6529</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">metapath2vec++</td>
-<td style="text-align: center;">0.6692</td>
-<td style="text-align: center;">0.6687</td>
-<td style="text-align: center;">0.6681</td>
-<td style="text-align: center;">0.6679</td>
-<td style="text-align: center;">0.6676</td>
-<td style="text-align: center;">0.6678</td>
-<td style="text-align: center;">0.6677</td>
-<td style="text-align: center;">0.6658</td>
-<td style="text-align: center;">0.6651</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">GPSPL 1st</td>
-<td style="text-align: center;">0.7344</td>
-<td style="text-align: center;">0.7378</td>
-<td style="text-align: center;">0.7397</td>
-<td style="text-align: center;">0.7396</td>
-<td style="text-align: center;">0.7391</td>
-<td style="text-align: center;">0.7401</td>
-<td style="text-align: center;">0.7410</td>
-<td style="text-align: center;">0.7425</td>
-<td style="text-align: center;">0.7388</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">GPSPL 2nd</td>
-<td style="text-align: center;">0.7121</td>
-<td style="text-align: center;">0.7128</td>
-<td style="text-align: center;">0.7141</td>
-<td style="text-align: center;">0.7130</td>
-<td style="text-align: center;">0.7148</td>
-<td style="text-align: center;">0.7146</td>
-<td style="text-align: center;">0.7137</td>
-<td style="text-align: center;">0.7145</td>
-<td style="text-align: center;">0.7159</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">GPSPL 1st+2nd</td>
-<td style="text-align: center;"><strong>0.7512</strong></td>
-<td style="text-align: center;"><strong>0.7540</strong></td>
-<td style="text-align: center;"><strong>0.7557</strong></td>
-<td style="text-align: center;"><strong>0.7564</strong></td>
-<td style="text-align: center;"><strong>0.7564</strong></td>
-<td style="text-align: center;"><strong>0.7558</strong></td>
-<td style="text-align: center;"><strong>0.7554</strong></td>
-<td style="text-align: center;"><strong>0.7574</strong></td>
-<td style="text-align: center;"><strong>0.7552</strong></td>
-</tr>
-</tbody>
-</table>
+  : Multi-label classification results (Micro-F1)
 
-: Multi-label classification results for author embeddings in
-LINE-related algorithms
+          Method             10%          20%          30%          40%          50%          60%          70%          80%          90%
+  ---------------------- ------------ ------------ ------------ ------------ ------------ ------------ ------------ ------------ ------------
+         LINE-1st           0.6996       0.7050       0.7061       0.7069       0.7067       0.7062       0.7056       0.7063       0.7059
+         LINE-2nd           0.6389       0.6400       0.6413       0.6417       0.6419       0.6415       0.6409       0.6403       0.6426
+       LINE-1st+2nd         0.7032       0.7034       0.7036       0.7046       0.7043       0.7049       0.7035       0.7044       0.7036
+     GPSPL-author 1st       0.6399       0.6427       0.6434       0.6439       0.6438       0.6436       0.6424       0.6451       0.6451
+     GPSPL-author 2nd       0.6119       0.6136       0.6141       0.6143       0.6140       0.6138       0.6138       0.6162       0.6169
+   GPSPL-author 1st+2nd     0.6477       0.6498       0.6506       0.6507       0.6508       0.6501       0.6506       0.6529       0.6528
+     GPSPL-paper 1st        0.7087       0.7112       0.7099       0.7120       0.7130       0.7083       0.7198       0.7177       0.7211
+     GPSPL-paper 2nd        0.6557       0.6574       0.6580       0.6582       0.6571       0.6570       0.6578       0.6550       0.6591
+   GPSPL-paper 1st+2nd      0.7212       0.7226       0.7226       0.7230       0.7231       0.7229       0.7243       0.7232       0.7251
+           PTE              0.7089       0.7093       0.7094       0.7098       0.7101       0.7104       0.7090       0.7099       0.7094
+       metapath2vec         0.6307       0.6310       0.6313       0.6317       0.6322       0.6325       0.6328       0.6313       0.6301
+      metapath2vec++        0.6478       0.6475       0.6473       0.6477       0.6478       0.6474       0.6473       0.6456       0.6445
+         Deepwalk           0.6964       0.6969       0.6982       0.6981       0.6965       0.6964       0.6963       0.6937       0.6961
+       GPSPD-author         0.5872       0.5887       0.5912       0.5922       0.5912       0.5977       0.5941       0.5971       0.5944
+       GPSPD-paper          0.7012       0.7015       0.7018       0.7020       0.7022       0.7021       0.7018       0.7023       0.7016
+          GPSPD           **0.7253**   **0.7280**   **0.7290**   **0.7300**   **0.7298**   **0.7302**   **0.7295**   **0.7306**   **0.7289**
+        GPSPL-1st           0.7318       0.7356       0.7369       0.7369       0.7361       0.7374       0.7388       0.7402       0.7364
+        GPSPL-2nd           0.7111       0.7117       0.7132       0.7119       0.7139       0.7137       0.7130       0.7136       0.7155
+      GPSPL-1st+2nd       **0.7482**   **0.7513**   **0.7527**   **0.7534**   **0.7534**   **0.7529**   **0.7526**   **0.7544**   **0.7522**
 
-<table>
-<caption>Multi-label classification results for author embeddings in LINE-related algorithms</caption>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Metric</th>
-<th style="text-align: center;">Method</th>
-<th style="text-align: center;">10%</th>
-<th style="text-align: center;">20%</th>
-<th style="text-align: center;">30%</th>
-<th style="text-align: center;">40%</th>
-<th style="text-align: center;">50%</th>
-<th style="text-align: center;">60%</th>
-<th style="text-align: center;">70%</th>
-<th style="text-align: center;">80%</th>
-<th style="text-align: center;">90%</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">LINE 1st</td>
-<td style="text-align: center;">0.6996</td>
-<td style="text-align: center;">0.7050</td>
-<td style="text-align: center;">0.7061</td>
-<td style="text-align: center;">0.7069</td>
-<td style="text-align: center;">0.7067</td>
-<td style="text-align: center;">0.7062</td>
-<td style="text-align: center;">0.7056</td>
-<td style="text-align: center;">0.7063</td>
-<td style="text-align: center;">0.7059</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">LINE 2nd</td>
-<td style="text-align: center;">0.6389</td>
-<td style="text-align: center;">0.6400</td>
-<td style="text-align: center;">0.6413</td>
-<td style="text-align: center;">0.6417</td>
-<td style="text-align: center;">0.6419</td>
-<td style="text-align: center;">0.6415</td>
-<td style="text-align: center;">0.6409</td>
-<td style="text-align: center;">0.6403</td>
-<td style="text-align: center;">0.6426</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">LINE 1st+2nd</td>
-<td style="text-align: center;">0.7032</td>
-<td style="text-align: center;">0.7034</td>
-<td style="text-align: center;">0.7036</td>
-<td style="text-align: center;">0.7046</td>
-<td style="text-align: center;">0.7043</td>
-<td style="text-align: center;">0.7049</td>
-<td style="text-align: center;">0.7035</td>
-<td style="text-align: center;">0.7044</td>
-<td style="text-align: center;">0.7036</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">PTE</td>
-<td style="text-align: center;">0.7089</td>
-<td style="text-align: center;">0.7093</td>
-<td style="text-align: center;">0.7094</td>
-<td style="text-align: center;">0.7098</td>
-<td style="text-align: center;">0.7101</td>
-<td style="text-align: center;">0.7104</td>
-<td style="text-align: center;">0.7090</td>
-<td style="text-align: center;">0.7099</td>
-<td style="text-align: center;">0.7094</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">GPSPL-author 1st</td>
-<td style="text-align: center;">0.6399</td>
-<td style="text-align: center;">0.6427</td>
-<td style="text-align: center;">0.6434</td>
-<td style="text-align: center;">0.6439</td>
-<td style="text-align: center;">0.6438</td>
-<td style="text-align: center;">0.6436</td>
-<td style="text-align: center;">0.6424</td>
-<td style="text-align: center;">0.6451</td>
-<td style="text-align: center;">0.6451</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">GPSPL-author 2nd</td>
-<td style="text-align: center;">0.6119</td>
-<td style="text-align: center;">0.6136</td>
-<td style="text-align: center;">0.6141</td>
-<td style="text-align: center;">0.6143</td>
-<td style="text-align: center;">0.6140</td>
-<td style="text-align: center;">0.6138</td>
-<td style="text-align: center;">0.6138</td>
-<td style="text-align: center;">0.6162</td>
-<td style="text-align: center;">0.6169</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">GPSPL-author 1st+2nd</td>
-<td style="text-align: center;">0.6477</td>
-<td style="text-align: center;">0.6498</td>
-<td style="text-align: center;">0.6506</td>
-<td style="text-align: center;">0.6507</td>
-<td style="text-align: center;">0.6508</td>
-<td style="text-align: center;">0.6501</td>
-<td style="text-align: center;">0.6506</td>
-<td style="text-align: center;">0.6529</td>
-<td style="text-align: center;">0.6528</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">GPSPL-paper 1st</td>
-<td style="text-align: center;">0.7087</td>
-<td style="text-align: center;">0.7112</td>
-<td style="text-align: center;">0.7099</td>
-<td style="text-align: center;">0.7120</td>
-<td style="text-align: center;">0.7130</td>
-<td style="text-align: center;">0.7083</td>
-<td style="text-align: center;">0.7198</td>
-<td style="text-align: center;">0.7177</td>
-<td style="text-align: center;">0.7211</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">GPSPL-paper 2nd</td>
-<td style="text-align: center;">0.6557</td>
-<td style="text-align: center;">0.6574</td>
-<td style="text-align: center;">0.6580</td>
-<td style="text-align: center;">0.6582</td>
-<td style="text-align: center;">0.6571</td>
-<td style="text-align: center;">0.6570</td>
-<td style="text-align: center;">0.6578</td>
-<td style="text-align: center;">0.6550</td>
-<td style="text-align: center;">0.6591</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">GPSPL-paper 1st+2nd</td>
-<td style="text-align: center;">0.7212</td>
-<td style="text-align: center;">0.7226</td>
-<td style="text-align: center;">0.7226</td>
-<td style="text-align: center;">0.7230</td>
-<td style="text-align: center;">0.7231</td>
-<td style="text-align: center;">0.7229</td>
-<td style="text-align: center;">0.7243</td>
-<td style="text-align: center;">0.7232</td>
-<td style="text-align: center;">0.7251</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">metapath2vec</td>
-<td style="text-align: center;">0.6307</td>
-<td style="text-align: center;">0.6310</td>
-<td style="text-align: center;">0.6313</td>
-<td style="text-align: center;">0.6317</td>
-<td style="text-align: center;">0.6322</td>
-<td style="text-align: center;">0.6325</td>
-<td style="text-align: center;">0.6328</td>
-<td style="text-align: center;">0.6313</td>
-<td style="text-align: center;">0.6301</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">metapath2vec++</td>
-<td style="text-align: center;">0.6478</td>
-<td style="text-align: center;">0.6475</td>
-<td style="text-align: center;">0.6473</td>
-<td style="text-align: center;">0.6477</td>
-<td style="text-align: center;">0.6478</td>
-<td style="text-align: center;">0.6474</td>
-<td style="text-align: center;">0.6473</td>
-<td style="text-align: center;">0.6456</td>
-<td style="text-align: center;">0.6445</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">GPSPL 1st</td>
-<td style="text-align: center;">0.7318</td>
-<td style="text-align: center;">0.7356</td>
-<td style="text-align: center;">0.7369</td>
-<td style="text-align: center;">0.7369</td>
-<td style="text-align: center;">0.7361</td>
-<td style="text-align: center;">0.7374</td>
-<td style="text-align: center;">0.7388</td>
-<td style="text-align: center;">0.7402</td>
-<td style="text-align: center;">0.7364</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">GPSPL 2nd</td>
-<td style="text-align: center;">0.7111</td>
-<td style="text-align: center;">0.7117</td>
-<td style="text-align: center;">0.7132</td>
-<td style="text-align: center;">0.7119</td>
-<td style="text-align: center;">0.7139</td>
-<td style="text-align: center;">0.7137</td>
-<td style="text-align: center;">0.7130</td>
-<td style="text-align: center;">0.7136</td>
-<td style="text-align: center;">0.7155</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: center;">GPSPL 1st+2nd</td>
-<td style="text-align: center;"><strong>0.7482</strong></td>
-<td style="text-align: center;"><strong>0.7513</strong></td>
-<td style="text-align: center;"><strong>0.7527</strong></td>
-<td style="text-align: center;"><strong>0.7534</strong></td>
-<td style="text-align: center;"><strong>0.7534</strong></td>
-<td style="text-align: center;"><strong>0.7529</strong></td>
-<td style="text-align: center;"><strong>0.7526</strong></td>
-<td style="text-align: center;"><strong>0.7544</strong></td>
-<td style="text-align: center;"><strong>0.7522</strong></td>
-</tr>
-</tbody>
-</table>
+  : Multi-label classification results (Macro-F1)
 
-: Multi-label classification results for author embeddings in
-LINE-related algorithms
+    Method(Proximity)     LINE     PTE     GPSPL-author   GPSPL-paper     GPSPL      metapath2v   metapath2v++   Deepwalk   GPSPD-author   GPSPD-paper     GPSPD
+  --------------------- -------- -------- -------------- ------------- ------------ ------------ -------------- ---------- -------------- ------------- ------------
+    1-st order(local)    0.3015     NA        0.2609        0.0447        0.1049         NA            NA           NA           NA            NA            NA
+   2-nd order (global)   0.2529   0.2634      0.2505        0.2403      **0.3118**     0.2403        0.2473       0.2873       0.1681        0.3392      **0.3555**
+      1st+2nd order      0.2516     NA        0.2607        0.1738        0.1894         NA            NA           NA           NA            NA            NA
+
+  : Node clustering results (NMI)
