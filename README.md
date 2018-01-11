@@ -1,7 +1,13 @@
 # GPSP
 This is the code for *GPSP: Graph Partition and Space Projection based approach for Heterogeneous Network Embedding*. The data and embeddings are aviable at https://drive.google.com/open?id=1PFp1E0O4I2LbitPo4_SV_0VP5hs2Z5gp.
 
-|        Method        |    10%     |    20%     |    30%     |    40%     |    50%     |    60%     |    70%     |    80%     |    90%     |
+
+
+## Experimental Details
+
+### Multi-label classification results (Micro-F1)
+
+|        Method        |    10%     |    20%     |    30%     |    40%     |    50%     |    60%     |    70%     |    80%     |    90%     |
 | :------------------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: |
 |       LINE-1st       |   0.7003   |   0.7069   |   0.7081   |   0.7087   |   0.7087   |   0.7084   |   0.7079   |   0.7087   |   0.7079   |
 |       LINE-2nd       |   0.6436   |   0.6446   |   0.6457   |   0.6462   |   0.6463   |   0.6458   |   0.6456   |   0.6450   |   0.6470   |
@@ -23,8 +29,7 @@ This is the code for *GPSP: Graph Partition and Space Projection based approach 
 |      GPSPL 2nd       |   0.7121   |   0.7128   |   0.7141   |   0.7130   |   0.7148   |   0.7146   |   0.7137   |   0.7145   |   0.7159   |
 |    GPSPL 1st+2nd     | **0.7512** | **0.7540** | **0.7557** | **0.7564** | **0.7564** | **0.7558** | **0.7554** | **0.7574** | **0.7552** |
 
-Multi-label classification results
-(Micro-F1)
+### Multi-label classification results (Macro-F1)
 
 |        Method        |    10%     |    20%     |    30%     |    40%     |    50%     |    60%     |    70%     |    80%     |    90%     |
 | :------------------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: |
@@ -48,8 +53,7 @@ Multi-label classification results
 |      GPSPL-2nd       |   0.7111   |   0.7117   |   0.7132   |   0.7119   |   0.7139   |   0.7137   |   0.7130   |   0.7136   |   0.7155   |
 |    GPSPL-1st+2nd     | **0.7482** | **0.7513** | **0.7527** | **0.7534** | **0.7534** | **0.7529** | **0.7526** | **0.7544** | **0.7522** |
 
-Multi-label classification results
-(Macro-F1)
+### Node clustering results (NMI)
 
 |  Method(Proximity)  |  LINE  |  PTE   | GPSPL-author | GPSPL-paper |   GPSPL    | metapath2v | metapath2v++ | Deepwalk | GPSPD-author | GPSPD-paper |   GPSPD    |
 | :-----------------: | :----: | :----: | :----------: | :---------: | :--------: | :--------: | :----------: | :------: | :----------: | :---------: | :--------: |
@@ -57,4 +61,3 @@ Multi-label classification results
 | 2-nd order (global) | 0.2529 | 0.2634 |    0.2505    |   0.2403    | **0.3118** |   0.2403   |    0.2473    |  0.2873  |    0.1681    |   0.3392    | **0.3555** |
 |    1st+2nd order    | 0.2516 |   NA   |    0.2607    |   0.1738    |   0.1894   |     NA     |      NA      |    NA    |      NA      |     NA      |     NA     |
 
-Node clustering results (NMI)
