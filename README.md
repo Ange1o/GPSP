@@ -1,9 +1,30 @@
 # GPSP
 This is the code for *GPSP: Graph Partition and Space Projection based approach for Heterogeneous Network Embedding*. The data and embeddings are aviable at https://drive.google.com/open?id=1PFp1E0O4I2LbitPo4_SV_0VP5hs2Z5gp.
 
+## Specification
+- Folder preprocessing : preprocessing steps for the data
+- Folder pte : implmentation of pte
+- Folder space projection is the space projection step
+- Folders node classification and clustering contain : codes for classification and clustering respectively
+- Folder visulization : codes for modifying data for the embedding projector. 
+
+## Development Environment
+- OS: Ubuntu 16.04 LTS
+- Language: Python 3.5.2
+- CPU: Intel® Core™ i7-5820K CPU @ 3.30GHz × 12 
+- RAM: 32GB
+- Libraries:
+    - numpy 1.13.1
+    - pandas 0.21.1
+    - NLTK 3.2.5
+    - scikit-learn 0.18.1
 
 
 ## Experimental Details
+
+
+GPSPL == GPSP-LINE
+GPSPD == GPSP-DeepWalk
 
 ### Multi-label classification results (Micro-F1)
 
