@@ -21,18 +21,18 @@ This is the code for *GPSP: Graph Partition and Space Projection based approach 
 ## Algorithm
 
 
-![alt text][logo]
+![alt text][a1]
 
-[logo]: https://github.com/Ange1o/GPSP/raw/master/img/algorithm1.png "Algorithm 1"
+[a1]: https://github.com/Ange1o/GPSP/raw/master/img/algorithm1.png "Algorithm 1"
 
 
-![alt text][logo]
+![alt text][a2]
 
-[logo]: https://github.com/Ange1o/GPSP/raw/master/img/algorithm2.png "Algorithm 2"
+[a2]: https://github.com/Ange1o/GPSP/raw/master/img/algorithm2.png "Algorithm 2"
 
-![alt text][logo]
+![alt text][a3]
 
-[logo]: https://github.com/Ange1o/GPSP/raw/master/img/algorithm3.png "Algorithm 3"
+[a3]: https://github.com/Ange1o/GPSP/raw/master/img/algorithm3.png "Algorithm 3"
 
 
 ## Experimental Details
@@ -42,9 +42,10 @@ This is the code for *GPSP: Graph Partition and Space Projection based approach 
 
 ### Visulization using Tensorflow Projector (t-sne)
 
-![alt text][logo]
 
-[logo]: https://github.com/Ange1o/GPSP/raw/master/img/gpspD.png "Embedding"
+![alt text][v1]
+
+[v1]: https://github.com/Ange1o/GPSP/raw/master/img/gpspD.png "Embedding"
 
 
 ### Multi-label classification results (Micro-F1)
