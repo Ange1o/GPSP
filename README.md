@@ -29,7 +29,7 @@ This is the code for *GPSP: Graph Partition and Space Projection based approach 
 
 ![alt text][logo]
 
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+[logo]: https://github.com/Ange1o/GPSP/raw/master/img/algorithm1.png "Logo Title Text 2"
 
 
 
