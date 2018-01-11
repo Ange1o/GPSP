@@ -45,7 +45,7 @@ This is the code for *GPSP: Graph Partition and Space Projection based approach 
 
 ![alt text][v1]
 
-[v1]: https://github.com/Ange1o/GPSP/raw/master/img/gpspD.png "Embedding"
+[v1]: https://github.com/Ange1o/GPSP/raw/master/img/gpspD.PNG "Embedding"
 
 
 ### Multi-label classification results (Micro-F1)
