@@ -1,5 +1,5 @@
 # GPSP
-This is the code and supplementary materials for WWW2018 *GPSP: Graph Partition and Space Projection based approach for Heterogeneous Network Embedding*. 
+This is the code and supplementary materials for the paper appeared in WWW2018, *GPSP: Graph Partition and Space Projection based approach for Heterogeneous Network Embedding*. 
 
 The data and embeddings are aviable at https://drive.google.com/open?id=1PFp1E0O4I2LbitPo4_SV_0VP5hs2Z5gp.
 
